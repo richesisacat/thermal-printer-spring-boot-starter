@@ -8,7 +8,7 @@ import java.awt.Font;
 /**
  * 普通文本.
  * <p>
- * 超出长度自动折行，可指定字号、样式、对齐方式
+ * 超出纸张宽度自动折行，可指定字号、样式、对齐方式
  *
  * @author Pete.Lee 2019-06-21
  * @see com.pete.printer.enums.Align
