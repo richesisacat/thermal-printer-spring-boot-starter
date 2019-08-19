@@ -1,6 +1,10 @@
 package pers.pete.printer.pojo;
 
 
+import pers.pete.printer.consts.Const;
+
+import java.awt.Font;
+
 /**
  * 项目.
  * <p>
@@ -14,9 +18,19 @@ public class RowData extends BaseData {
 
   private String value;
 
+  private Font font;
+
+  private int size;
+
   public RowData(String title, String value) {
+    this(title, value, Font.BOLD, Const.FONTSIZE_10);
+  }
+
+  public RowData(String title, String value, int style, int size) {
     this.title = title;
     this.value = value;
+    this.font = new Font(null, style, size);
+    this.size = size;
   }
 
   public String getTitle() {
@@ -33,5 +47,21 @@ public class RowData extends BaseData {
 
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public Font getFont() {
+    return font;
+  }
+
+  public void setFont(Font font) {
+    this.font = font;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
   }
 }

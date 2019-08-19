@@ -20,7 +20,7 @@ public class TitleData extends BaseData {
   private int size;
 
   public TitleData(String value) {
-    this(value, Font.BOLD, Const.FONTSIZE_12);
+    this(value, Font.BOLD, Const.FONTSIZE_14);
   }
 
   public TitleData(String value, int style, int size) {

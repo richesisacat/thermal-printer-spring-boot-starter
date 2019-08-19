@@ -8,7 +8,7 @@ spring boot 调用默认热敏打印机
 <dependency>
     <groupId>pers.pete</groupId>
     <artifactId>thermal-printer-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 

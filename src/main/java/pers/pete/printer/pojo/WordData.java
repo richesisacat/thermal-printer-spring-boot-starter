@@ -24,7 +24,7 @@ public class WordData extends BaseData {
   private int size;
 
   public WordData(String text, Align align) {
-    this(text, align, Font.PLAIN, Const.FONTSIZE_8);
+    this(text, align, Font.PLAIN, Const.FONTSIZE_10);
   }
 
   public WordData(String text, Align align, int style, int size) {
