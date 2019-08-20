@@ -39,7 +39,7 @@ public class LinePrinter implements BasePrinter {
       final int fontHeight = fm.getHeight();
       int width = fm.stringWidth(lineData.getValue());
       g2.drawLine(x, (y + fontHeight / 2), x + (pageWidth - width) / 2, (y + fontHeight / 2));
-      g2.drawString(lineData.getValue(), x + (pageWidth - width) / 2, y + fontHeight);
+      g2.drawString(lineData.getValue(), x + (pageWidth - width) / 2, y + fontHeight * 3 / 4);
       g2.drawLine(x + (pageWidth + width) / 2, (y + fontHeight / 2), x + pageWidth, (y + fontHeight / 2));
       return y + fontHeight + Const.PADDING;
     }

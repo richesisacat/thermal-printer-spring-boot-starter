@@ -198,7 +198,7 @@ public class SalesTicket implements Printable {
     g2.drawString("时间:" + sdf.format(new Date()), (float) x + 15, (float) y + line);
     line += heigth;
     g2.drawString("钱票请当面点清，离开柜台恕不负责", (float) x + 15, (float) y + line);
-    System.out.println(pageIndex);
+    // System.out.println(pageIndex);
     switch (pageIndex) {
       case 0:
         return PAGE_EXISTS;  //0

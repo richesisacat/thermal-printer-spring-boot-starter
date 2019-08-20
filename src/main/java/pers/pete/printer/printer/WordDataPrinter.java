@@ -24,7 +24,7 @@ public class WordDataPrinter implements BasePrinter {
     g2.setFont(wordData.getFont());
 
     final FontMetrics fm = g2.getFontMetrics();
-    System.out.println(fm.getHeight());
+    // System.out.println(fm.getHeight());
     final String text = wordData.getText();
     final char[] chars = text.toCharArray();
     final List<String> rows = new ArrayList<>();

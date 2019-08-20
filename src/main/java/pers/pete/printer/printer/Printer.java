@@ -33,7 +33,7 @@ public class Printer implements Printable {
 
     for (BaseData d : baseData) {
       if (null != printers.get(d.getClass().getName())) {
-        System.out.println(y);
+        // System.out.println(y);
         y = printers.get(d.getClass().getName()).draw(g2, x, y, d);
       }
     }
