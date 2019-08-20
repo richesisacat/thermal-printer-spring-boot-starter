@@ -6,7 +6,7 @@
 
     <groupId>io.github.rich-is-cat</groupId>
     <artifactId>thermal-printer-spring-boot-starter</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 
     <name>thermal</name>
     <description>热敏打印机插件</description>
