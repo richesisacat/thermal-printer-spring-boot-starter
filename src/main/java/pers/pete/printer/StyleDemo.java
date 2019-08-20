@@ -37,7 +37,6 @@ public class StyleDemo {
     list.add(new WordData("居中对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号，一二三四五六七八九十", Align.CENTER, Font.ITALIC, Const.FONTSIZE_8));
     list.add(new LineData());
     list.add(new WordData("右对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号，一二三四五六七八九十", Align.RIGHT, Font.ITALIC, Const.FONTSIZE_8));
-    list.add(new LineData());
 
     list.add(new LineData("键值文本", false));
     list.add(new RowData("房间号", "1001"));

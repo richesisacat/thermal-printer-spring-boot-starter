@@ -1,4 +1,4 @@
-package pers.pete.printer.service;
+package pers.pete.printer.utils;
 
 import com.google.zxing.common.BitMatrix;
 
@@ -8,19 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
-
-/**
- * 二维码生成
- * 李亚飞
- */
 public final class MatrixToImageWriter {
 
   private static final int BLACK = 0xFF000000;
   private static final int WHITE = 0xFFFFFFFF;
-
-  private MatrixToImageWriter() {
-  }
-
 
   public static BufferedImage toBufferedImage(BitMatrix matrix) {
     int width = matrix.getWidth();
@@ -34,7 +25,6 @@ public final class MatrixToImageWriter {
     return image;
   }
 
-
   public static void writeToFile(BitMatrix matrix, String format, File file) throws IOException {
     BufferedImage image = toBufferedImage(matrix);
     if (!ImageIO.write(image, format, file)) {
@@ -42,12 +32,10 @@ public final class MatrixToImageWriter {
     }
   }
 
-
   public static void writeToStream(BitMatrix matrix, String format, OutputStream stream) throws IOException {
     BufferedImage image = toBufferedImage(matrix);
     if (!ImageIO.write(image, format, stream)) {
       throw new IOException("Could not write an image of format " + format);
     }
   }
-
 }
