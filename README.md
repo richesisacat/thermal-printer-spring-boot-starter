@@ -6,7 +6,7 @@ spring boot 调用默认热敏打印机
 - 引入依赖
 ```
 <dependency>
-    <groupId>pers.pete</groupId>
+    <groupId>io.github.rich-is-cat</groupId>
     <artifactId>thermal-printer-spring-boot-starter</artifactId>
     <version>0.0.3</version>
 </dependency>
