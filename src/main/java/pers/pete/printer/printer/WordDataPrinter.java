@@ -4,10 +4,10 @@ import pers.pete.printer.consts.Const;
 import pers.pete.printer.enums.Align;
 import pers.pete.printer.pojo.BaseData;
 import pers.pete.printer.pojo.WordData;
+import pers.pete.printer.utils.PrinterUtil;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
 import java.util.List;
 
 public class WordDataPrinter implements BasePrinter {
@@ -24,25 +24,7 @@ public class WordDataPrinter implements BasePrinter {
     g2.setFont(wordData.getFont());
 
     final FontMetrics fm = g2.getFontMetrics();
-    // System.out.println(fm.getHeight());
-    final String text = wordData.getText();
-    final char[] chars = text.toCharArray();
-    final List<String> rows = new ArrayList<>();
-
-    int lineWith = 0;
-    int from = 0;
-    for (int i = 0; i < chars.length; i++) {
-      lineWith += fm.charWidth(chars[i]);
-      if (lineWith > pageWidth - 8) {
-        rows.add(text.substring(from, i));
-        from = i;
-        lineWith = 0;
-      }
-    }
-    if (0 != lineWith) {
-      rows.add(text.substring(from, chars.length));
-    }
-
+    final List<String> rows = PrinterUtil.wordFold(wordData.getText(), fm, pageWidth);
     for (String row : rows) {
       int rx = x;
       if (Align.RIGHT.equals(wordData.getAlign())) {

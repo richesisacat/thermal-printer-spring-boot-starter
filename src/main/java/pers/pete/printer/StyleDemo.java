@@ -39,11 +39,12 @@ public class StyleDemo {
     list.add(new LineData(true));
 
     list.add(new LineData("普通文本", false));
-    list.add(new WordData("左对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号，一二三四五六七八九十", Align.LEFT));
+    list.add(new WordData("左对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号", Align.LEFT));
     list.add(new LineData());
-    list.add(new WordData("居中对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号，一二三四五六七八九十", Align.CENTER, Font.ITALIC, Const.FONTSIZE_8));
+    list.add(new WordData("居中对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号", Align.CENTER, Font.PLAIN, Const.FONTSIZE_10));
     list.add(new LineData());
-    list.add(new WordData("右对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号，一二三四五六七八九十", Align.RIGHT, Font.ITALIC, Const.FONTSIZE_8));
+    list.add(new WordData("右对齐，超出纸张宽度自动折行，可设置字体样式、对齐方式、字号", Align.RIGHT, Font.ITALIC, Const.FONTSIZE_8));
+    list.add(new SpaceData());
 
     list.add(new LineData("键值文本", false));
     list.add(new RowData("房间号", "1001"));
@@ -51,6 +52,8 @@ public class StyleDemo {
     list.add(new RowData("入住人", "张三"));
     list.add(new RowData("入住日期", "2019-06-20"));
     list.add(new RowData("离店日期", "2019-06-21"));
+    list.add(new RowData("空字段", ""));
+    list.add(new RowData("备注", "超过纸张宽度折到下一行但标题不会"));
 
     list.add(new LineData("二维码", false));
     list.add(new QrcodeData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));

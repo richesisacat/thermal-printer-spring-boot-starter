@@ -9,6 +9,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import javax.imageio.ImageIO;
 import javax.print.PrintService;
+import java.awt.FontMetrics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.print.PrinterJob;
@@ -16,7 +17,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class PrinterUtil {
 
@@ -32,25 +35,6 @@ public class PrinterUtil {
     }
     throw new RuntimeException("未找到可用打印机" + name + "，请检查配置");
   }
-
-  /*public static double getHeight(List<BaseData> list, int width) {
-    double height = 0d;
-    double imageSize = width * 3d / 5d;
-
-    for (BaseData d : list) {
-      if (d instanceof TitleData) {
-        height += Const.FONTSIZE_12 + Const.PADDING;
-      } else if (d instanceof LineData) {
-        height += Const.FONTSIZE_10 + Const.PADDING;
-      } else if (d instanceof RowData) {
-        height += Const.FONTSIZE_8 + Const.PADDING;
-      } else if (d instanceof ImageData) {
-        height += imageSize + Const.PADDING;
-      }
-    }
-
-    return height + width / 4d;
-  }*/
 
   public static Image qrCode(String text, String path) {
     try {
@@ -79,5 +63,27 @@ public class PrinterUtil {
       e.printStackTrace();
     }
     return null;
+  }
+
+  public static List<String> wordFold(final String text, final FontMetrics fm, final int pageWidth) {
+    final char[] chars = text.toCharArray();
+    final List<String> rows = new ArrayList<>();
+    final StringBuilder basket = new StringBuilder();
+    int lineWith = 0;
+    for (int i = 0; i < chars.length; i++) {
+      lineWith += fm.charWidth(chars[i]);
+      if (lineWith < pageWidth - 8) {
+        basket.append(chars[i]);
+      } else {
+        rows.add(basket.toString());
+        basket.setLength(0);
+        basket.append(chars[i]);
+        lineWith = fm.charWidth(chars[i]);
+      }
+    }
+    if (basket.length() > 1) {
+      rows.add(basket.toString());
+    }
+    return rows;
   }
 }
