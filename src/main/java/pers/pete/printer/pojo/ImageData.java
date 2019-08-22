@@ -1,24 +1,25 @@
 package pers.pete.printer.pojo;
 
+import java.awt.Image;
+
 public class ImageData extends BaseData {
 
-  private String text;
+  private Image image;
 
-  public ImageData(String text) {
-    this.text = text;
+  public ImageData(Image image) {
+    this.image = image;
   }
 
-  public String getText() {
-    return text;
+  public Image getImage() {
+    return image;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setImage(Image image) {
+    this.image = image;
   }
 
   @Override
   public String toString() {
-    return "ImageData: " +
-      "text='" + text + '\'';
+    return "ImageData: image";
   }
 }

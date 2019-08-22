@@ -11,8 +11,14 @@ import pers.pete.printer.pojo.SpaceData;
 import pers.pete.printer.pojo.TitleData;
 import pers.pete.printer.pojo.WordData;
 
+import javax.imageio.ImageIO;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.awt.print.PrinterException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +55,21 @@ public class StyleDemo {
     list.add(new LineData("二维码", false));
     list.add(new QrcodeData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));
     list.add(new LineData("本地图片", false));
-    list.add(new ImageData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));
+
+    File file = new File("D:\\test.png");
+    InputStream is;
+    BufferedImage bi = null;
+    try {
+      is = new FileInputStream(file);
+      bi = ImageIO.read(is);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    list.add(new ImageData(bi));
 
     list.add(new SpaceData(10));
     list.add(new WordData("打印时间: 2019-06-21", Align.RIGHT, Font.BOLD, 5));
+
     try {
       a.print(list);
     } catch (PrinterException e) {
