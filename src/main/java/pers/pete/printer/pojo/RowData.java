@@ -64,4 +64,12 @@ public class RowData extends BaseData {
   public void setSize(int size) {
     this.size = size;
   }
+
+  @Override
+  public String toString() {
+    return "RowData: " +
+      "title='" + title + '\'' +
+      ", value='" + value + '\'' +
+      ", size=" + size;
+  }
 }

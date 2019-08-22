@@ -21,4 +21,10 @@ public class SpaceData extends BaseData {
   public void setPadding(int padding) {
     this.padding = padding;
   }
+
+  @Override
+  public String toString() {
+    return "SpaceData: " +
+      "padding=" + padding;
+  }
 }

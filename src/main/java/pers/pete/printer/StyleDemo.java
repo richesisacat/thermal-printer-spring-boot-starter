@@ -5,6 +5,7 @@ import pers.pete.printer.enums.Align;
 import pers.pete.printer.pojo.BaseData;
 import pers.pete.printer.pojo.ImageData;
 import pers.pete.printer.pojo.LineData;
+import pers.pete.printer.pojo.QrcodeData;
 import pers.pete.printer.pojo.RowData;
 import pers.pete.printer.pojo.SpaceData;
 import pers.pete.printer.pojo.TitleData;
@@ -46,6 +47,8 @@ public class StyleDemo {
     list.add(new RowData("离店日期", "2019-06-21"));
 
     list.add(new LineData("二维码", false));
+    list.add(new QrcodeData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));
+    list.add(new LineData("本地图片", false));
     list.add(new ImageData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));
 
     list.add(new SpaceData(10));

@@ -1,10 +1,10 @@
 package pers.pete.printer.pojo;
 
-public class ImageData extends BaseData {
+public class QrcodeData extends BaseData {
 
   private String text;
 
-  public ImageData(String text) {
+  public QrcodeData(String text) {
     this.text = text;
   }
 
@@ -18,7 +18,7 @@ public class ImageData extends BaseData {
 
   @Override
   public String toString() {
-    return "ImageData: " +
+    return "QrcodeData: " +
       "text='" + text + '\'';
   }
 }

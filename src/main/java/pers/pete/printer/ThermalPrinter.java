@@ -3,6 +3,7 @@ package pers.pete.printer;
 import pers.pete.printer.pojo.BaseData;
 import pers.pete.printer.pojo.ImageData;
 import pers.pete.printer.pojo.LineData;
+import pers.pete.printer.pojo.QrcodeData;
 import pers.pete.printer.pojo.RowData;
 import pers.pete.printer.pojo.SpaceData;
 import pers.pete.printer.pojo.TitleData;
@@ -11,6 +12,7 @@ import pers.pete.printer.printer.BasePrinter;
 import pers.pete.printer.printer.ImagePrinter;
 import pers.pete.printer.printer.LinePrinter;
 import pers.pete.printer.printer.Printer;
+import pers.pete.printer.printer.QrcodePrinter;
 import pers.pete.printer.printer.RowPrinter;
 import pers.pete.printer.printer.SpacePrinter;
 import pers.pete.printer.printer.TitlePrinter;
@@ -41,6 +43,7 @@ public class ThermalPrinter {
     this.printers.put(LineData.class.getName(), new LinePrinter(width));
     this.printers.put(RowData.class.getName(), new RowPrinter(width));
     this.printers.put(ImageData.class.getName(), new ImagePrinter(width));
+    this.printers.put(QrcodeData.class.getName(), new QrcodePrinter(width));
     this.printers.put(WordData.class.getName(), new WordDataPrinter(width));
     this.printers.put(SpaceData.class.getName(), new SpacePrinter());
   }
@@ -76,5 +79,8 @@ public class ThermalPrinter {
       }
     }
     job.print();
+    for (int i = 0; i < list.size(); i++) {
+      System.out.println("ThermalPrinter -> " + list.get(i).toString());
+    }
   }
 }

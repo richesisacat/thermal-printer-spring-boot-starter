@@ -62,4 +62,11 @@ public class LineData extends BaseData {
   public void setFont(Font font) {
     this.font = font;
   }
+
+  @Override
+  public String toString() {
+    return "LineData: " +
+      "value='" + value + '\'' +
+      ", fullLine=" + fullLine;
+  }
 }

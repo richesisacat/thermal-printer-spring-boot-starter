@@ -65,4 +65,12 @@ public class WordData extends BaseData {
   public void setSize(int size) {
     this.size = size;
   }
+
+  @Override
+  public String toString() {
+    return "WordData: " +
+      "text='" + text + '\'' +
+      ", align=" + align +
+      ", size=" + size;
+  }
 }

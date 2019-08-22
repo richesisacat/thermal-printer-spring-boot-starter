@@ -52,4 +52,11 @@ public class TitleData extends BaseData {
   public void setSize(int size) {
     this.size = size;
   }
+
+  @Override
+  public String toString() {
+    return "TitleData: " +
+      "value='" + value + '\'' +
+      ", size=" + size;
+  }
 }
