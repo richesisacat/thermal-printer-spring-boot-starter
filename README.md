@@ -8,7 +8,7 @@ spring boot 调用默认热敏打印机
 <dependency>
     <groupId>io.github.rich-is-cat</groupId>
     <artifactId>thermal-printer-spring-boot-starter</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
 </dependency>
 ```
 
@@ -22,7 +22,8 @@ thermal:
     user-defined-width: 
     # 指定打印机名称，用默认打印机可无此项
     printer-name:
-    
+    # 是否打印日志
+    show-log: true
 ```
 
 ## 调用
@@ -40,7 +41,7 @@ public class PrinterConfig {
   
   @Bean
   public ThermalPrinter thermalPrinter() {
-    return new ThermalPrinter(145, "MyPrinter");
+    return new ThermalPrinter(145, true, "MyPrinter");
   }
 }
 ```

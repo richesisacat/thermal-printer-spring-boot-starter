@@ -35,10 +35,13 @@ public class ThermalPrinter {
 
   private String printerName;
 
+  private boolean showLog;
+
   private Map<String, BasePrinter> printers = new HashMap<>();
 
-  public ThermalPrinter(int paperWidth) {
+  public ThermalPrinter(int paperWidth, boolean showLog) {
     this.width = paperWidth;
+    this.showLog = showLog;
     this.printers.put(TitleData.class.getName(), new TitlePrinter(width));
     this.printers.put(LineData.class.getName(), new LinePrinter(width));
     this.printers.put(RowData.class.getName(), new RowPrinter(width));
@@ -48,8 +51,8 @@ public class ThermalPrinter {
     this.printers.put(SpaceData.class.getName(), new SpacePrinter());
   }
 
-  public ThermalPrinter(int paperWidth, String printerName) {
-    this(paperWidth);
+  public ThermalPrinter(int paperWidth, boolean showLog, String printerName) {
+    this(paperWidth, showLog);
     this.printerName = printerName;
   }
 
@@ -79,8 +82,10 @@ public class ThermalPrinter {
       }
     }
     job.print();
-    for (int i = 0; i < list.size(); i++) {
-      System.out.println("ThermalPrinter -> " + list.get(i).toString());
+    if (showLog) {
+      for (BaseData aList : list) {
+        System.out.println("p -> " + aList.toString());
+      }
     }
   }
 }

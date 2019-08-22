@@ -14,7 +14,7 @@ public class ThermalPrinterProperties {
   private PaperWidth paperWidth;
 
   /**
-   * 用户自定义热敏纸宽度,单位毫米
+   * 用户自定义热敏纸宽度,单位毫米.
    */
   private Integer userDefinedWidth;
 
@@ -22,6 +22,11 @@ public class ThermalPrinterProperties {
    * 打印机名称,不写为默认打印机.
    */
   private String printerName;
+
+  /**
+   * 是否打印日志.
+   */
+  private boolean showLog;
 
   public PaperWidth getPaperWidth() {
     return paperWidth;
@@ -45,5 +50,13 @@ public class ThermalPrinterProperties {
 
   public void setUserDefinedWidth(Integer userDefinedWidth) {
     this.userDefinedWidth = userDefinedWidth;
+  }
+
+  public boolean isShowLog() {
+    return showLog;
+  }
+
+  public void setShowLog(boolean showLog) {
+    this.showLog = showLog;
   }
 }

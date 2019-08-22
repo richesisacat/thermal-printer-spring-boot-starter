@@ -23,7 +23,7 @@ public class StyleDemo {
   }
 
   public void test() {
-    ThermalPrinter a = new ThermalPrinter(145);
+    ThermalPrinter a = new ThermalPrinter(145, true);
 
     List<BaseData> list = new ArrayList<>();
 

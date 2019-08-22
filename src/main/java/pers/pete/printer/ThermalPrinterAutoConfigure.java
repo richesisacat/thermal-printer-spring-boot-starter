@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 import pers.pete.printer.enums.PaperWidth;
 
 @Configuration
@@ -27,10 +28,17 @@ public class ThermalPrinterAutoConfigure {
       if (null == properties.getUserDefinedWidth()) {
         throw new RuntimeException("properties file userDefinedWidth is null!");
       }
-      return new ThermalPrinter(properties.getUserDefinedWidth(), properties.getPrinterName());
+      return factory(properties.getUserDefinedWidth(), properties.isShowLog(), properties.getPrinterName());
     } else {
-      return new ThermalPrinter(properties.getPaperWidth().getWidth(), properties.getPrinterName());
+      return factory(properties.getPaperWidth().getWidth(), properties.isShowLog(), properties.getPrinterName());
     }
   }
 
+  private ThermalPrinter factory(int paperWidth, boolean showLog, String printerName) {
+    if (StringUtils.isEmpty(printerName)) {
+      return new ThermalPrinter(paperWidth, showLog);
+    } else {
+      return new ThermalPrinter(paperWidth, showLog, printerName);
+    }
+  }
 }
