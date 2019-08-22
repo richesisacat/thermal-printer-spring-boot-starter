@@ -8,7 +8,7 @@ spring boot 调用默认热敏打印机
 <dependency>
     <groupId>io.github.rich-is-cat</groupId>
     <artifactId>thermal-printer-spring-boot-starter</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.7</version>
 </dependency>
 ```
 

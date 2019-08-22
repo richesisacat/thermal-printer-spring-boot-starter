@@ -81,7 +81,7 @@ public class PrinterUtil {
         lineWith = fm.charWidth(chars[i]);
       }
     }
-    if (basket.length() > 1) {
+    if (basket.length() > 0) {
       rows.add(basket.toString());
     }
     return rows;
