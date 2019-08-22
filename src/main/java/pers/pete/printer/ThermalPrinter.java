@@ -86,6 +86,7 @@ public class ThermalPrinter {
       for (BaseData aList : list) {
         System.out.println("p -> " + aList.toString());
       }
+      System.out.println("p -> finish");
     }
   }
 }
