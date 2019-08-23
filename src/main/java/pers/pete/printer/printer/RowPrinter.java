@@ -23,14 +23,22 @@ public class RowPrinter implements BasePrinter {
     // g2.setFont(new Font(null, Font.PLAIN, rowData.getSize()));
     g2.setFont(rowData.getFont());
     final FontMetrics fm = g2.getFontMetrics();
-    int stringWidth = fm.stringWidth(rowData.getTitle());
+    // int stringWidth = fm.stringWidth(rowData.getTitle());
     int left = pageWidth / 3;
 
-    g2.drawString(rowData.getTitle(), x + (left - stringWidth), y + rowData.getSize());
-    final List<String> rows = PrinterUtil.wordFold(rowData.getValue(), fm, (pageWidth - left - 10));
-    for (int i = 0; i < rows.size(); i++) {
-      g2.drawString(rows.get(i), x + (left + 10), y + rowData.getSize());
-      if (!(rows.size() <= 1) && i != (rows.size() - 1)) {
+    final List<String> rowsKey = PrinterUtil.wordFold(rowData.getTitle(), fm, left);
+    for (int i = 0; i < rowsKey.size(); i++) {
+      int stringWidth = fm.stringWidth(rowsKey.get(i));
+      g2.drawString(rowsKey.get(i), x + (left - stringWidth), y + rowData.getSize());
+      if (!(rowsKey.size() <= 1) && i != (rowsKey.size() - 1)) {
+        y += rowData.getSize() + Const.PADDING;
+      }
+    }
+    // g2.drawString(rowData.getTitle(), x + (left - stringWidth), y + rowData.getSize());
+    final List<String> rowsValue = PrinterUtil.wordFold(rowData.getValue(), fm, (pageWidth - left - 10));
+    for (int i = 0; i < rowsValue.size(); i++) {
+      g2.drawString(rowsValue.get(i), x + (left + 5), y + rowData.getSize());
+      if (!(rowsValue.size() <= 1) && i != (rowsValue.size() - 1)) {
         y += rowData.getSize() + Const.PADDING;
       }
     }

@@ -7,9 +7,9 @@ public enum PaperWidth {
   MM80(226);
   */
 
-  USERDEFINED(126),
+  USERDEFINED(132),
 
-  MM58(126),
+  MM58(132),
 
   MM80(210);
 

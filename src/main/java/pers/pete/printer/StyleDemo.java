@@ -52,8 +52,7 @@ public class StyleDemo {
     list.add(new RowData("入住人", "张三"));
     list.add(new RowData("入住日期", "2019-06-20"));
     list.add(new RowData("离店日期", "2019-06-21"));
-    list.add(new RowData("空字段", ""));
-    list.add(new RowData("备注", "超过纸张宽度折到下一行但标题不会"));
+    list.add(new RowData("超长的小标题", "超过纸张宽度折到下一行"));
 
     list.add(new LineData("二维码", false));
     list.add(new QrcodeData("https://www.baidu.com/s?wd=Wow!%20You%20find%20me!"));

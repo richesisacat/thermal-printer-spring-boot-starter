@@ -72,7 +72,7 @@ public class PrinterUtil {
     int lineWith = 0;
     for (int i = 0; i < chars.length; i++) {
       lineWith += fm.charWidth(chars[i]);
-      if (lineWith < pageWidth - 8) {
+      if (lineWith < pageWidth - 2) {
         basket.append(chars[i]);
       } else {
         rows.add(basket.toString());
