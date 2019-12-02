@@ -3,9 +3,11 @@ package pers.pete.printer.printer;
 import pers.pete.printer.consts.Const;
 import pers.pete.printer.pojo.BaseData;
 import pers.pete.printer.pojo.TitleData;
+import pers.pete.printer.utils.PrinterUtil;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.util.List;
 
 public class TitlePrinter implements BasePrinter {
 
@@ -22,13 +24,21 @@ public class TitlePrinter implements BasePrinter {
     //g2.setFont(new Font(null, Font.BOLD, titleData.getSize()));
     g2.setFont(titleData.getFont());
     final FontMetrics fm = g2.getFontMetrics();
-    int width = fm.stringWidth(titleData.getValue());
+    final List<String> rows = PrinterUtil.wordFold(titleData.getValue(), fm, pageWidth);
+    for (String row : rows) {
+      int rx = x + (pageWidth - fm.stringWidth(row)) / 2;
+      g2.drawString(row, rx, y + fm.getHeight());
+      y += fm.getHeight() + Const.PADDING;
+    }
+    return y;
+
+    /*int width = fm.stringWidth(titleData.getValue());
     if (width < pageWidth) {
       g2.drawString(titleData.getValue(), x + (pageWidth - width) / 2, y + titleData.getSize());
     } else {
       g2.drawString(titleData.getValue(), x, y + titleData.getSize());
     }
-    return y + titleData.getSize() + Const.PADDING;
+    return y + titleData.getSize() + Const.PADDING;*/
   }
 
 }
